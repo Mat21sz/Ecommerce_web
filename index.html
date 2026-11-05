@@ -3,30 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ColorShop - E-commerce</title>
+    <title>TechStore | Equipamiento Profesional</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header class="header">
-        <h1 class="header__title">ColorShop 🛍️</h1>
+        <div class="header__container">
+            <h1 class="header__title">TechStore</h1>
+            <p class="header__subtitle">Equipamiento de alto rendimiento</p>
+        </div>
     </header>
     
     <main class="main-content">
         <section class="products">
-            <h2 class="products__title">Nuestros Productos</h2>
+            <h2 class="section-title">Catálogo de Productos</h2>
             <div id="product-list" class="products__grid">
-                <!-- Los productos se inyectarán aquí vía JS -->
             </div>
         </section>
         
         <aside class="cart">
-            <h2 class="cart__title">Tu Carrito 🛒</h2>
-            <ul id="cart-list" class="cart__list">
-                <p class="cart__empty-msg">El carrito está vacío</p>
-            </ul>
-            <div class="cart__summary">
-                <span class="cart__total-label">Total:</span>
-                <span id="cart-total" class="cart__total-price">$0.00</span>
+            <h2 class="section-title">Resumen de Compra</h2>
+            <div id="cart-container" class="cart__container">
+                <ul id="cart-list" class="cart__list">
+                    <p class="cart__empty-msg">Tu carrito está vacío.</p>
+                </ul>
+                <div class="cart__footer">
+                    <div class="cart__summary">
+                        <span class="cart__total-label">Total a pagar:</span>
+                        <span id="cart-total" class="cart__total-price">$0.00</span>
+                    </div>
+                    <button id="checkout-btn" class="btn btn--primary btn--full" disabled onclick="processCheckout()">
+                        Completar Compra
+                    </button>
+                </div>
+            </div>
+            <div id="success-msg" class="cart__success hidden">
+                <div class="cart__success-icon">✔️</div>
+                <h3>¡Compra exitosa!</h3>
+                <p>Tu orden está siendo procesada.</p>
+                <button class="btn btn--outline" onclick="resetCart()">Nueva Compra</button>
             </div>
         </aside>
     </main>
